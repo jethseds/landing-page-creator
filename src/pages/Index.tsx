@@ -1,208 +1,136 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Zap, Shield, BarChart3, Workflow, Globe, Check, Star } from "lucide-react";
-import heroImage from "@/assets/hero.jpg";
+import { ArrowRight, ShieldCheck, Truck, Award, Factory, Star } from "lucide-react";
+import heroImg from "@/assets/snacks-hero.jpg";
+import cornChips from "@/assets/corn-chips.jpg";
+import cornick from "@/assets/cornick.jpg";
+import greenPeas from "@/assets/green-peas.jpg";
 
-const features = [
-  { icon: Sparkles, title: "AI-native workflows", desc: "Generate specs, tickets and tests from a single prompt. Your team moves at the speed of thought." },
-  { icon: Workflow, title: "Unified pipeline", desc: "Plan, build, ship, and learn in one place — no more context switching between five tools." },
-  { icon: Zap, title: "Real-time everything", desc: "Live cursors, instant deploys, and feedback loops measured in seconds, not days." },
-  { icon: Shield, title: "Enterprise-grade security", desc: "SOC 2 Type II, SSO, SCIM, and audit logs out of the box. Your data stays yours." },
-  { icon: BarChart3, title: "Insights that matter", desc: "Track velocity, quality, and impact with dashboards your engineers actually trust." },
-  { icon: Globe, title: "Built for global teams", desc: "Async-first, multi-region, multi-language. Wherever your team works, Nebula works." },
+const products = [
+  { name: "Corn Chips", desc: "Crispy, golden corn chips including our flagship Alibaba brand.", img: cornChips },
+  { name: "Cornick", desc: "Crunchy fried corn kernels — a Filipino classic snack.", img: cornick },
+  { name: "Green Peas Snacks", desc: "Lightly seasoned crispy green peas, full of flavor.", img: greenPeas },
 ];
 
-const logos = ["Linear", "Vercel", "Stripe", "Notion", "Figma", "Loom"];
-
-const tiers = [
-  { name: "Starter", price: "$0", desc: "For individuals exploring the platform.", features: ["Up to 3 projects", "Community support", "Basic AI assist"], cta: "Start free" },
-  { name: "Team", price: "$24", desc: "For growing product teams shipping fast.", features: ["Unlimited projects", "Priority support", "Advanced AI workflows", "Integrations & API"], cta: "Start trial", featured: true },
-  { name: "Enterprise", price: "Custom", desc: "For organizations that need scale.", features: ["SSO & SCIM", "Audit logs & SLA", "Dedicated CSM", "Custom contracts"], cta: "Contact sales" },
+const trust = [
+  { icon: ShieldCheck, title: "FDA-Compliant", desc: "Manufactured under strict food safety standards." },
+  { icon: Factory, title: "Modern Facility", desc: "Located in Pandi, Bulacan with scalable capacity." },
+  { icon: Truck, title: "Nationwide Reach", desc: "Reliable bulk supply and distribution support." },
+  { icon: Award, title: "Trusted Brand", desc: "Home of the well-loved Alibaba corn chips." },
 ];
 
 const testimonials = [
-  { quote: "Nebula collapsed our entire stack into one product. We ship 3x faster and our team has never been happier.", name: "Ava Chen", role: "VP Engineering, Lumen" },
-  { quote: "It's the first tool that feels like it was designed by people who actually build software for a living.", name: "Marcus Patel", role: "CTO, Northwind" },
-  { quote: "The AI doesn't get in the way — it quietly does the boring stuff so we can focus on the craft.", name: "Sofia Reyes", role: "Head of Product, Orbital" },
+  { quote: "Consistent quality and on-time delivery — F&D has been a reliable partner for our retail chain.", name: "Distributor, Metro Manila" },
+  { quote: "Their OEM team helped us launch our private label snack line smoothly.", name: "Brand Owner, Cebu" },
+  { quote: "Great products, fair pricing, and excellent customer service.", name: "Wholesaler, Pampanga" },
 ];
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
-      {/* Nav */}
-      <header className="sticky top-0 z-50 glass border-b border-border">
-        <div className="container flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-2 font-display font-bold text-lg">
-            <span className="h-7 w-7 rounded-lg bg-gradient-primary shadow-glow" />
-            Nebula
-          </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#features" className="hover:text-foreground transition-smooth">Features</a>
-            <a href="#pricing" className="hover:text-foreground transition-smooth">Pricing</a>
-            <a href="#customers" className="hover:text-foreground transition-smooth">Customers</a>
-            <a href="#" className="hover:text-foreground transition-smooth">Docs</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" className="hidden sm:inline-flex">Sign in</Button>
-            <Button className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-smooth shadow-glow">
-              Get started
-            </Button>
-          </div>
-        </div>
-      </header>
-
+    <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-hero">
-        <div className="container relative pt-24 pb-32 md:pt-32 md:pb-40">
-          <div className="mx-auto max-w-3xl text-center animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 text-xs text-muted-foreground mb-6">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
-              Introducing Nebula 3.0 — now with AI agents
-            </div>
-            <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
-              Ship products at the <span className="text-gradient-primary">speed of thought</span>
+        <div className="container py-20 md:py-28 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="animate-fade-up">
+            <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
+              Snack Manufacturer • Philippines
+            </span>
+            <h1 className="font-display text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-brand-blue">
+              Quality Snack Manufacturing <span className="text-gradient-primary">You Can Trust</span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Nebula is the all-in-one platform for modern product teams. Plan, build, and launch faster with AI-native workflows that disappear into your craft.
+            <p className="mt-5 text-lg text-muted-foreground max-w-xl">
+              Frank and David Food Manufacturing Corp. is a trusted Filipino snack manufacturer based in Pandi, Bulacan — home of Alibaba corn chips, cornick, and green peas snacks.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-smooth shadow-glow group">
-                Start free
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-smooth" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-border bg-card/40">
-                Book a demo
-              </Button>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/contact">
+                <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow group">
+                  Partner With Us
+                  <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-smooth" />
+                </Button>
+              </Link>
+              <Link to="/products">
+                <Button size="lg" variant="outline">View Our Products</Button>
+              </Link>
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">Free forever for individuals. No credit card required.</p>
           </div>
-
-          <div className="relative mx-auto mt-20 max-w-5xl animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            <div className="absolute inset-0 -z-10 blur-3xl opacity-50 bg-gradient-primary rounded-full" />
-            <div className="rounded-2xl border border-border overflow-hidden shadow-elegant animate-pulse-glow">
-              <img src={heroImage} alt="Nebula product visualization" width={1920} height={1080} className="w-full h-auto" />
+          <div className="relative animate-fade-up" style={{ animationDelay: "0.15s" }}>
+            <div className="rounded-3xl overflow-hidden shadow-elegant border border-border">
+              <img src={heroImg} alt="Filipino snack foods - corn chips, cornick, green peas" width={1536} height={1024} className="w-full h-auto" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Logos */}
-      <section className="border-y border-border py-12">
-        <div className="container">
-          <p className="text-center text-xs uppercase tracking-widest text-muted-foreground mb-8">
-            Trusted by teams shipping at world-class companies
+      {/* Trust strip */}
+      <section className="py-14 border-y border-border bg-secondary/30">
+        <div className="container grid grid-cols-2 md:grid-cols-4 gap-6">
+          {trust.map((t) => (
+            <div key={t.title} className="flex flex-col items-center text-center">
+              <div className="h-12 w-12 rounded-xl bg-gradient-primary text-primary-foreground flex items-center justify-center mb-3 shadow-glow">
+                <t.icon className="h-6 w-6" />
+              </div>
+              <h3 className="font-display font-semibold text-brand-blue">{t.title}</h3>
+              <p className="text-sm text-muted-foreground mt-1">{t.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* About intro */}
+      <section className="py-20 md:py-24">
+        <div className="container max-w-3xl text-center">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-blue">
+            Filipino-made snacks, manufactured with care
+          </h2>
+          <p className="mt-5 text-muted-foreground text-lg">
+            For years, we've been crafting quality snack products loved across the Philippines. From our flagship Alibaba corn chips to our crunchy cornick and green peas, we deliver consistent quality at scale — built on food safety, reliability, and partnership.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {logos.map((l) => (
-              <span key={l} className="font-display text-xl md:text-2xl font-semibold text-muted-foreground/70 hover:text-foreground transition-smooth">
-                {l}
-              </span>
-            ))}
+          <div className="mt-7">
+            <Link to="/about"><Button variant="outline">Learn more about us</Button></Link>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-24 md:py-32">
+      {/* Featured Products */}
+      <section className="py-20 bg-gradient-warm">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-gradient">
-              Everything you need. Nothing you don't.
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Built from first principles for teams who care about the details.
-            </p>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-blue">Our Featured Products</h2>
+            <p className="mt-3 text-muted-foreground">A snack line trusted by retailers and distributors nationwide.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                className="group rounded-2xl border border-border bg-card p-8 shadow-card hover:border-primary/40 hover:-translate-y-1 transition-smooth"
-              >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary/10 border border-primary/20 mb-5 group-hover:shadow-glow transition-smooth">
-                  <f.icon className="h-6 w-6 text-primary" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {products.map((p) => (
+              <div key={p.name} className="group bg-card rounded-2xl border border-border overflow-hidden shadow-card hover:-translate-y-1 hover:shadow-elegant transition-smooth">
+                <div className="aspect-square overflow-hidden bg-secondary/40">
+                  <img src={p.img} alt={p.name} loading="lazy" width={800} height={800} className="w-full h-full object-cover group-hover:scale-105 transition-smooth" />
                 </div>
-                <h3 className="font-display text-xl font-semibold mb-2">{f.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-bold text-brand-blue">{p.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link to="/products"><Button className="bg-gradient-primary text-primary-foreground shadow-glow">Explore All Products</Button></Link>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section id="customers" className="py-24 md:py-32 bg-gradient-hero">
+      <section className="py-20">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
-              Loved by <span className="text-gradient-primary">product teams</span> everywhere
-            </h2>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-blue">What Our Partners Say</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t) => (
-              <div key={t.name} className="rounded-2xl border border-border bg-card p-8 shadow-card">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
+              <div key={t.name} className="bg-card rounded-2xl border border-border p-7 shadow-card">
+                <div className="flex gap-1 mb-3 text-primary">
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                 </div>
-                <p className="text-foreground/90 leading-relaxed mb-6">"{t.quote}"</p>
-                <div>
-                  <p className="font-semibold">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="py-24 md:py-32">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-gradient">
-              Simple pricing. Serious value.
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">Start free. Upgrade when you're ready.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {tiers.map((t) => (
-              <div
-                key={t.name}
-                className={`rounded-2xl border p-8 shadow-card transition-smooth ${
-                  t.featured
-                    ? "border-primary/50 bg-card relative shadow-glow"
-                    : "border-border bg-card hover:border-primary/30"
-                }`}
-              >
-                {t.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1">
-                    Most popular
-                  </div>
-                )}
-                <h3 className="font-display text-xl font-semibold">{t.name}</h3>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-display text-5xl font-bold">{t.price}</span>
-                  {t.price !== "Custom" && <span className="text-muted-foreground">/mo</span>}
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{t.desc}</p>
-                <Button
-                  className={`w-full mt-6 ${
-                    t.featured
-                      ? "bg-gradient-primary text-primary-foreground hover:opacity-90"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  } transition-smooth`}
-                >
-                  {t.cta}
-                </Button>
-                <ul className="mt-8 space-y-3">
-                  {t.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm">
-                      <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-foreground/90">"{t.quote}"</p>
+                <p className="mt-4 text-sm font-semibold text-brand-blue">{t.name}</p>
               </div>
             ))}
           </div>
@@ -210,47 +138,22 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32">
+      <section className="py-20">
         <div className="container">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-12 md:p-20 text-center shadow-elegant">
-            <div className="absolute inset-0 bg-gradient-hero opacity-80" />
-            <div className="relative">
-              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight">
-                Ready to <span className="text-gradient-primary">build the future</span>?
-              </h2>
-              <p className="mt-5 text-lg text-muted-foreground max-w-xl mx-auto">
-                Join 50,000+ teams who've made the switch to a faster way of building.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-smooth shadow-glow">
-                  Start free
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-border bg-card/40">
-                  Talk to sales
-                </Button>
-              </div>
-            </div>
+          <div className="rounded-3xl bg-gradient-primary text-primary-foreground p-10 md:p-16 text-center shadow-elegant">
+            <h2 className="font-display text-3xl md:text-5xl font-extrabold">Let's Build a Partnership</h2>
+            <p className="mt-4 max-w-xl mx-auto text-primary-foreground/90">
+              Looking for a reliable snack manufacturing partner in the Philippines? We'd love to hear from you.
+            </p>
+            <Link to="/contact" className="inline-block mt-7">
+              <Button size="lg" variant="secondary" className="bg-white text-brand-blue hover:bg-white/90">
+                Contact Us Today <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-12">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 font-display font-bold">
-            <span className="h-6 w-6 rounded-md bg-gradient-primary" />
-            Nebula
-          </div>
-          <p className="text-sm text-muted-foreground">© 2026 Nebula Labs, Inc. All rights reserved.</p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-smooth">Privacy</a>
-            <a href="#" className="hover:text-foreground transition-smooth">Terms</a>
-            <a href="#" className="hover:text-foreground transition-smooth">Security</a>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 };
 
